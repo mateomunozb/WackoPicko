@@ -26,7 +26,7 @@ jobs:
           scanner_mode: full
           
       - name: Fail when vulnerabilities are found
-        if: ${{ always() && steps.scan.outputs.vulnerabilities_found == 'true' }}
+        if: ${{ steps.scan.outputs.vulnerabilities_found == 'true' }}
         run: exit 1
         
       - name: Upload CSV report
