@@ -27,7 +27,9 @@ jobs:
           
       - name: Fail when vulnerabilities are found
         if: ${{ steps.scan.outputs.vulnerabilities_found == 'true' }}
-        run: exit 1
+        run: |
+            echo "::error:: Fluid Attacks SAST encontro vulnerabilidades."
+            exit 1
         
       - name: Upload CSV report
         if: ${{ always() }}
