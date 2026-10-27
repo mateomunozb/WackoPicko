@@ -18,7 +18,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: fluidattacks/sast-action@1.3.0
+      - name: Fluid Attacks SAST
+        id: sast
+        uses: fluidattacks/sast-action@1.3.0
         with:
           scan_config_path: .github/sast-config.yaml
           scanner_mode: full
